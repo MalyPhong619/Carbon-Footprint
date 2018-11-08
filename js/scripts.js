@@ -88,12 +88,29 @@ toGoContainers.prototype.totalCarbonforGraph = function() {
   return this.totalCarbonSum;
 }
 
+//
+function All3Categories() {
+  this.totalBeforeAddAllPerDayArray = [],
+  this.totalBeforeAddAllPerDay = 0;
+}
+
+All3Categories.prototype.arrayOfAllCategoriesPerDay = function() {
+  this.sumOfAllCategoriesPerDayArray = []
+}
+
+All3Categories.prototype.sumOfAllCategoriesPerDay = function(array) {
+  for (i = 0; i < array.length; i++) {
+    this.totalBeforeAddAllPerDay += array.length[i];
+  }
+  return this.totalBeforeAddAllPerDay;
+}
+
+
+
+
 
 $(document).ready(function() {
-  var takeOutData = {
-    header: ["takeout", "Amount CO2"],
-    rows:[],
-  };
+
   var transitData = {
     header: ["transit", "Amount CO2"],
     rows:[],
@@ -102,6 +119,11 @@ $(document).ready(function() {
     header: ["coffee", "Amount CO2"],
     rows:[],
   };
+  var takeOutData = {
+    header: ["takeout", "Amount CO2"],
+    rows:[],
+  };
+
 
   $(".transitNav").click(function(){
     $(".mainDisplayDiv").hide();
@@ -133,6 +155,17 @@ $(document).ready(function() {
 
     var dailyCarbon = new Carbon(transportation, inputMile);
 
+    var allThreeCategories = new All3Categories(allMondayCarbonArray,);
+    console.log(allThreeCategories);
+
+    $("p.click").click(function(event){
+      event.preventDefault();
+      debugger;
+      console.log(allMondayCarbonArray);
+      var mondayTotal = allThreeCategories.sumOfAllCategoriesPerDay(allMondayCarbonArray);
+      $("#mondayTotal").text(mondayTotal);
+
+    })
 
     // dailySum.push()
 
@@ -141,7 +174,9 @@ $(document).ready(function() {
         $("#mondayCommuteFootprint").text(dailyCarbon.calculateCar() + " grams of CO2 per passenger per mile");
         $("#mondayCommute").text("Car");
         transitData.rows.push(["Monday", dailyCarbon.calculateCar()]);
-        console.log(takeOutData.rows);
+        allMondayCarbonArray.push(allMondayCarbonArray.splice(2, 1,(dailyCarbon.calculateCar())));
+        console.log(allMondayCarbonArray);
+          // console.log(takeOutData.rows);
       } else if(dayOfWeek === "2") {
         $("#tuesdayCommuteFootprint").text(dailyCarbon.calculateCar() + " grams of CO2 per passenger per mile");
         $("#tuesdayCommute").text("Car");
@@ -245,12 +280,15 @@ $(document).ready(function() {
 
     var takeoutDayofWeek = parseInt($(".takeoutSelectWeekday").val());
     takeoutCarbon.arraySum();
+    console.log(takeoutCarbon.arraySum());
 
 
 
     if (takeoutDayofWeek === 1) {
       $("#mondayTakeoutFootprint").text(takeoutCarbon.totalCarbon());
       takeOutData.rows.push(["Takeout - Monday", takeoutCarbon.totalCarbonforGraph()]);
+      allMondayCarbonArray.push(allMondayCarbonArray.splice(1, 1,(takeoutCarbon.totalCarbonforGraph())));
+      console.log(allMondayCarbonArray);
     } else if (takeoutDayofWeek === 2) {
       $("#tuesdayTakeoutFootprint").text(takeoutCarbon.totalCarbon());
       takeOutData.rows.push(["Tuesday", takeoutCarbon.totalCarbonforGraph()]);
@@ -284,12 +322,14 @@ $(document).ready(function() {
 
     var coffeeDayofWeek = parseInt($(".coffeeselectweekday").val());
     coffeeOrder.typeOfCoffee();
-    console.log(coffeeOrder)
+    console.log(coffeeDayofWeek)
 
 
     if (coffeeDayofWeek === 1) {
       $("#mondayCoffeeFootprint").text(coffeeOrder.totalCoffeeAccessories());
       coffeeData.rows.push(["Monday", coffeeOrder.totalCoffeeForGraph()]);
+      allMondayCarbonArray.push(allMondayCarbonArray.splice(0, 1,(coffeeOrder.totalCoffeeForGraph())));
+      console.log(allMondayCarbonArray);
     } else if (coffeeDayofWeek === 2) {
       $("#tuesdayCoffeeFootprint").text(coffeeOrder.totalCoffeeAccessories());
       coffeeData.rows.push(["Tuesday", coffeeOrder.totalCoffeeForGraph()]);
@@ -395,4 +435,16 @@ $(document).ready(function() {
       $(".takeoutVideoModal").hide();
     })
   });
+
+  var allMondayCarbonArray = [0,0,0];
+  var allTuesdayCarbonArray = [];
+  var allWednesdayCarbonArray = [];
+  var allThursdayCarbonArray = [];
+  var allFridayCarbonArray = [];
+  var allSaturdayCarbonArray = [];
+  var allSundayCarbonArray = [];
+
+
+
+
 });
