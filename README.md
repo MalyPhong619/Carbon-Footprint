@@ -2,7 +2,7 @@
 
 #### _A website that calculates users carbon output thru various daily tasks, November 8, 2018_
 
-#### By _**Leo Mangutov, Kohichi Horii, Brooke Perry, Maly Phongsavana**_
+#### By _**Leo Mangutov, Kohichi Horii, Brooke Perry, Maly Phongsavanh**_
 
 ## Description
 
@@ -12,6 +12,8 @@ _This website first collects what type of transportation a user uses and the dis
 
 
 ## Setup/Installation Requirements
+
+### [GH-Pages](malyphong619.github.io/Carbon-Footprint)
 
 * _Clone this repository_
 * _Open folder containing Carbon-Footprint_
@@ -26,9 +28,9 @@ _{Are there issues that have not yet been resolved that you want to let users kn
 ## Support and contact details
 
 _If you are having any issues or if you would like to contribute feel to contact us_
- * Leo: leo.mangutov@gmail.com
- * Brooke: perrysbrooke@gmail.com
- * Maly:
+ * [Leo Mangutov](mailto:leo.mangutov@gmail.com)
+ * [Brooke Perry](mailto:perrysbrooke@gmail.com)
+ * [Maly Phongsavanh](mailto:phongsvanh619@icloud.com)
 
 ## Technologies Used
 
@@ -63,4 +65,4 @@ https://www.theguardian.com/environment/green-living-blog/2010/jun/17/carbon-foo
 
 *This software is licensed under the MIT license*
 
-Copyright (c) 2018 **_Leo Mangutov, Kohichi Horii, Brooke Perry, Maly Phongsavana_**
+Copyright (c) 2018 **_Leo Mangutov, Kohichi Horii, Brooke Perry, Maly Phongsavanh_**
