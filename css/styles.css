@@ -106,7 +106,13 @@ a {
 }
 
 .suggestionsTabs {
- border: 1px solid red;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+}
+
+.suggestionsTabs ul li a {
+  height: 75px;
 }
 
 .suggestions{
