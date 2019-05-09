@@ -105,6 +105,10 @@ a {
   align-items: center;
 }
 
+.suggestionsTabs {
+ border: 1px solid red;
+}
+
 .suggestions{
   border: none;
   margin-top: 20px;
