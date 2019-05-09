@@ -6,6 +6,12 @@ body {
   font-family: monospace;
 }
 
+.calendarDiv {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
 #emptyDiv {
   margin: 100px;
 }
@@ -86,14 +92,17 @@ a {
 }
 
 .sideBaring {
-  float: left;
-  width: 350px;
+  width: 30%;
   height: 400px;
   padding: 10px;
   background: none;
   text-align: center;
-  margin-left: 150px;
-  margin-right: -100px;
+}
+
+.sideBaring ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .suggestions{
